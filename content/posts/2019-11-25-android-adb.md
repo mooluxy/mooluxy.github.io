@@ -1,6 +1,6 @@
 ﻿---
 title: "Android ADB 应用精简"
-date: 2019-11-25T15:41:16+08:00
+date: 2018-11-25T15:41:16+08:00
 draft: false
 tags: ["Android", "App"]
 ---
