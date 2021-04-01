@@ -1,22 +1,31 @@
-# .github/workflows/build.yml
-
-name: build
+name: Deploy Hugo
 
 on:
   push:
     branches:
-    - master
+      - master
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  build-deploy:
+    runs-on: ubuntu-18.04
     steps:
-    - name: 'Building...'
-      uses: reuixiy/hugo-deploy@v1
-      env:
-        DEPLOY_REPO: mooluxy/mooluxy.github.io
-        DEPLOY_BRANCH: master
-        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-        # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-        TZ: Asia/Shanghai
+      - uses: actions/checkout@v1  # v2 does not have submodules option now
+        # with:
+          # submodules: true
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: latest
+          # extended: true
+
+      - name: Build
+        run: hugo
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.personal_token }} # 这里的 ACTIONS_DEPLOY_KEY 则是上面设置 Private Key的变量名
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./public
+          commit_message: ${{ github.event.head_commit.message }}
