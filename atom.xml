@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title type="text">Mooluxy&#39;s Blog</title>
     <subtitle type="html">Mooluxy&#39;s Blog</subtitle>
-    <updated>2021-04-01T13:17:50&#43;00:00</updated>
+    <updated>2021-04-01T13:42:26&#43;00:00</updated>
     <id>https://mooluxy.github.io/</id>
     <link rel="alternate" type="text/html" href="https://mooluxy.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://mooluxy.github.io/atom.xml" />
@@ -14,20 +14,20 @@
             
                 <email>wyqwsgs@gmail.com</email>
             </author>
-    <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
+    
     <generator uri="https://gohugo.io/" version="0.82.0">Hugo</generator>
         <entry>
             <title type="text">Reddit 常用英文缩写</title>
             <link rel="alternate" type="text/html" href="https://mooluxy.github.io/posts/2020-11-12-english-abbreviations/" />
             <id>https://mooluxy.github.io/posts/2020-11-12-english-abbreviations/</id>
-            <updated>2021-04-01T13:17:48&#43;00:00</updated>
+            <updated>2021-04-01T13:42:25&#43;00:00</updated>
             <published>2020-11-12T15:41:16&#43;08:00</published>
             <author>
                     <name>Mooluxy</name>
                     <uri>https://mooluxy.github.io/</uri>
                     <email>wyqwsgs@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">reddit 常用缩写。如果遇到其他不懂的，Urban Dictionary 往往很好用。 Common abbreviation for Reddit. Urban Dictionary works well for those who don……</summary>
+            <summary type="html">reddit 常用缩写。如果遇到其他不懂的，Urban Dictionary 往往很好用。 Common abbreviation for Reddit. Urban Dictionary works well for those who don……</summary>
             
                 <content type="html">&lt;blockquote&gt;
 &lt;p&gt;reddit 常用缩写。如果遇到其他不懂的，Urban Dictionary 往往很好用。&lt;/p&gt;
@@ -100,14 +100,14 @@ Urban Dictionary works well for those who don’t understand it.&lt;/p&gt;
             <title type="text">好奇心日报招人，这里有 15 个要求和 6 个问题</title>
             <link rel="alternate" type="text/html" href="https://mooluxy.github.io/posts/2020-11-07-qdaily-hiring-requirements/" />
             <id>https://mooluxy.github.io/posts/2020-11-07-qdaily-hiring-requirements/</id>
-            <updated>2021-04-01T13:17:48&#43;00:00</updated>
+            <updated>2021-04-01T13:42:25&#43;00:00</updated>
             <published>2020-11-07T15:41:16&#43;08:00</published>
             <author>
                     <name>Mooluxy</name>
                     <uri>https://mooluxy.github.io/</uri>
                     <email>wyqwsgs@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">嗨，诸位好。 我们是个挑剔的媒体。 我们做过的报道一般来说是这种风格，投简历之前请慎重考……</summary>
+            <summary type="html">嗨，诸位好。 我们是个挑剔的媒体。 我们做过的报道一般来说是这种风格，投简历之前请慎重考……</summary>
             
                 <content type="html">&lt;p&gt;嗨，诸位好。&lt;/p&gt;
 &lt;p&gt;我们是个挑剔的媒体。&lt;/p&gt;
@@ -180,14 +180,14 @@ Urban Dictionary works well for those who don’t understand it.&lt;/p&gt;
             <title type="text">Android ADB 应用精简</title>
             <link rel="alternate" type="text/html" href="https://mooluxy.github.io/posts/2019-11-25-android-adb/" />
             <id>https://mooluxy.github.io/posts/2019-11-25-android-adb/</id>
-            <updated>2021-04-01T13:17:48&#43;00:00</updated>
+            <updated>2021-04-01T13:42:25&#43;00:00</updated>
             <published>2019-11-25T15:41:16&#43;08:00</published>
             <author>
                     <name>Mooluxy</name>
                     <uri>https://mooluxy.github.io/</uri>
                     <email>wyqwsgs@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">小米 MIUI 免 root 一键删除系统内置软件 温馨提示：因版本差异！所以请大家尽量卸载前备份重要数据……</summary>
+            <summary type="html">小米 MIUI 免 root 一键删除系统内置软件 温馨提示：因版本差异！所以请大家尽量卸载前备份重要数据……</summary>
             
                 <content type="html">&lt;ul&gt;
 &lt;li&gt;
