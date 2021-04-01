@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title type="text">Mooluxy&#39;s Blog</title>
     <subtitle type="html">Mooluxy&#39;s Blog</subtitle>
-    <updated>2021-04-01T13:43:14&#43;00:00</updated>
+    <updated>2021-04-01T13:43:30&#43;00:00</updated>
     <id>https://mooluxy.github.io/</id>
     <link rel="alternate" type="text/html" href="https://mooluxy.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://mooluxy.github.io/atom.xml" />
@@ -20,7 +20,7 @@
             <title type="text">Reddit 常用英文缩写</title>
             <link rel="alternate" type="text/html" href="https://mooluxy.github.io/posts/2020-11-12-english-abbreviations/" />
             <id>https://mooluxy.github.io/posts/2020-11-12-english-abbreviations/</id>
-            <updated>2021-04-01T13:43:12&#43;00:00</updated>
+            <updated>2021-04-01T13:43:28&#43;00:00</updated>
             <published>2020-11-12T15:41:16&#43;08:00</published>
             <author>
                     <name>Mooluxy</name>
@@ -100,8 +100,8 @@ Urban Dictionary works well for those who don’t understand it.&lt;/p&gt;
             <title type="text">好奇心日报招人，这里有 15 个要求和 6 个问题</title>
             <link rel="alternate" type="text/html" href="https://mooluxy.github.io/posts/2020-11-07-qdaily-hiring-requirements/" />
             <id>https://mooluxy.github.io/posts/2020-11-07-qdaily-hiring-requirements/</id>
-            <updated>2021-04-01T13:43:12&#43;00:00</updated>
-            <published>2020-11-07T15:41:16&#43;08:00</published>
+            <updated>2021-04-01T13:43:28&#43;00:00</updated>
+            <published>2019-11-07T15:41:16&#43;08:00</published>
             <author>
                     <name>Mooluxy</name>
                     <uri>https://mooluxy.github.io/</uri>
@@ -180,7 +180,7 @@ Urban Dictionary works well for those who don’t understand it.&lt;/p&gt;
             <title type="text">Android ADB 应用精简</title>
             <link rel="alternate" type="text/html" href="https://mooluxy.github.io/posts/2019-11-25-android-adb/" />
             <id>https://mooluxy.github.io/posts/2019-11-25-android-adb/</id>
-            <updated>2021-04-01T13:43:12&#43;00:00</updated>
+            <updated>2021-04-01T13:43:28&#43;00:00</updated>
             <published>2018-11-25T15:41:16&#43;08:00</published>
             <author>
                     <name>Mooluxy</name>
