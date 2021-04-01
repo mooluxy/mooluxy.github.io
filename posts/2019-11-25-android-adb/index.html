@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+    <meta charset="UTF-8" />
+
+    <meta name="generator" content="Hugo 0.82.0" /><meta name="theme-color" content="#fff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <title>Android ADB 应用精简 | Mooluxy&#39;s Blog</title>
+
+    <link rel="stylesheet" href="/css/meme.min.css" />
+
+    
+    
+        <script src="/js/meme.min.js"></script>
+
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Cinzel&#43;Decorative:wght@700&amp;display=swap" media="print" onload="this.media='all'" />
+        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Cinzel&#43;Decorative:wght@700&amp;display=swap" /></noscript>
+
+    <meta name="author" content="Mooluxy" /><meta name="description" content="小米 MIUI 免 root 一键删除系统内置软件 温馨提示：因版本差异！所以请大家尽量卸载前备份重要数据……" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Mooluxy&#39;s Blog" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Mooluxy&#39;s Blog" />
+    <meta name="msapplication-starturl" content="../../" />
+    <meta name="msapplication-TileColor" content="#fff" />
+    <meta name="msapplication-TileImage" content="../../icons/mstile-150x150.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    
+    
+
+    
+    <link rel="canonical" href="https://mooluxy.github.io/posts/2019-11-25-android-adb/" />
+    
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "datePublished": "2019-11-25T15:41:16+08:00",
+        "dateModified": "2021-04-01T13:17:48+00:00",
+        "url": "https://mooluxy.github.io/posts/2019-11-25-android-adb/",
+        "headline": "Android ADB 应用精简",
+        "description": "小米 MIUI 免 root 一键删除系统内置软件 温馨提示：因版本差异！所以请大家尽量卸载前备份重要数据……",
+        "inLanguage" : "zh-CN",
+        "articleSection": "posts",
+        "wordCount":  3189 ,
+        "image": "https://mooluxy.github.io/icons/favicon.ico",
+        "author": {
+            "@type": "Person",
+            "description": "Mooluxy's Neverland",
+            "email": "wyqwsgs@gmail.com",
+            "image": "https://mooluxy.github.io/icons/apple-touch-icon.png",
+            "url": "https://mooluxy.github.io/",
+            "name": "Mooluxy"
+        },
+        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Mooluxy's Blog",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://mooluxy.github.io/icons/favicon.ico"
+            },
+            "url": "https://mooluxy.github.io/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebSite",
+            "@id": "https://mooluxy.github.io/"
+        }
+    }
+</script>
+
+    
+    
+
+
+
+<meta property="og:title" content="Android ADB 应用精简" />
+<meta property="og:description" content="小米 MIUI 免 root 一键删除系统内置软件 温馨提示：因版本差异！所以请大家尽量卸载前备份重要数据……" />
+<meta property="og:url" content="https://mooluxy.github.io/posts/2019-11-25-android-adb/" />
+<meta property="og:site_name" content="Mooluxy&#39;s Blog" />
+<meta property="og:locale" content="zh" /><meta property="og:image" content="https://mooluxy.github.io/icons/favicon.ico" />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2019-11-25T15:41:16&#43;08:00" />
+    <meta property="article:modified_time" content="2021-04-01T13:17:48&#43;00:00" />
+    
+    <meta property="article:section" content="posts" />
+
+
+
+    
+</head>
+
+    <body>
+        <div class="container">
+            
+    <header class="header">
+        
+            <div class="header-wrapper">
+                <div class="header-inner single">
+                    
+    <div class="site-brand">
+        
+            <a href="/" class="brand">Mooluxy&#39;s Blog</a>
+        
+    </div>
+
+                    <nav class="nav">
+    <ul class="menu" id="menu">
+        
+            
+        
+        
+        
+        
+            
+                <li class="menu-item"><a href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="icon home"><path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/></svg><span class="menu-item-name">home</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/posts/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon archive"><path d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"/></svg><span class="menu-item-name">Post</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/tags/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="icon tags"><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg><span class="menu-item-name">Tag</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/about/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon user-circle"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"/></svg><span class="menu-item-name">About</span></a>
+                </li>
+            
+        
+    </ul>
+</nav>
+
+                    
+                </div>
+            </div>
+            
+    <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-toggle"></label>
+    <label for="nav-toggle" class="nav-curtain"></label>
+
+
+        
+    </header>
+
+
+
+
+            
+            
+    <main class="main single" id="main">
+    <div class="main-inner">
+
+        
+
+        <article class="content post h-entry" data-align="justify" data-type="posts" data-toc-num="true">
+
+            <h1 class="post-title p-name">Android ADB 应用精简</h1>
+
+            
+
+            
+                
+            
+
+            
+                
+
+<div class="post-meta">
+    
+        
+        <time datetime="2019-11-25T15:41:16&#43;08:00" class="post-meta-item published dt-published"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;2019.11.25</time>
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            
+
+            <nav class="contents">
+  <h2 id="contents" class="contents-title">目录</h2><ol class="toc">
+    <li><a id="contents:精简步骤" href="#精简步骤">精简步骤</a></li>
+    <li><a id="contents:精简项目" href="#精简项目">精简项目</a>
+      <ol>
+        <li><a id="contents:删除" href="#删除">删除</a></li>
+        <li><a id="contents:停用" href="#停用">停用</a>
+          <ol>
+            <li><a id="contents:已经测试过" href="#已经测试过">已经测试过</a></li>
+            <li><a id="contents:没有精简过" href="#没有精简过">没有精简过</a></li>
+          </ol>
+        </li>
+        <li><a id="contents:已知不可精简的app" href="#已知不可精简的app">已知不可精简的app</a></li>
+        <li><a id="contents:一些技巧" href="#一些技巧">一些技巧</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav><div class="post-body e-content">
+              <ul>
+<li>
+<p><a href="https://t.me/zuanke8/6333" target="_blank" rel="noopener">小米 MIUI 免 root 一键删除系统内置软件</a></p>
+<p><strong>温馨提示：因版本差异！所以请大家尽量卸载前备份重要数据！</strong></p>
+<p>本工具是基于 Android 9 所搭载的 MIUI 10 和 MIUI 11 修改！可向下兼容 MIUI 系统，Andriod 10 未测试！如果想恢复卸载掉的软件，双清系统（恢复出厂设置）即可</p>
+<ol>
+<li>准备 小米手机、Windows 电脑、数据线</li>
+<li>安装<a href="http://bigota.d.miui.com/tools/MiFlash2018-5-28-0.zip" target="_blank" rel="noopener">小米官方手机驱动</a></li>
+<li>进入开发者模式</li>
+<li>连接手机与电脑用数据线将手机与电脑连接，选择 传文件 模式</li>
+<li>使用本帖的工具进行卸载</li>
+<li>工具 <a href="https://www.lanzous.com/iavr5tc" target="_blank" rel="noopener">下载地址</a></li>
+</ol>
+</li>
+<li>
+<p><a href="https://t.me/zuanke8/6337" target="_blank" rel="noopener">华为 EMUI 免 root 一键删除系统内置软件</a></p>
+<p>温馨提示：为避免卡华为 LOGO！建议卸载前备份重要数据！</p>
+<p>此工具在 EMUI 9.1.0 测试无异常，可向下兼容 EMUI 系统，Andriod 10 未测试！</p>
+<p>如果想恢复卸载掉的软件，双清系统（恢复出厂设置）即可！</p>
+<ol>
+<li>准备 华为手机、Windows电脑、数据线</li>
+<li><a href="https://consumer.huawei.com/cn/support/hisuite/" target="_blank" rel="noopener">安装华为官方手机驱动</a></li>
+<li>进入开发者模式</li>
+<li>连接手机与电脑</li>
+<li>使用本帖的工具进行卸载</li>
+<li>工具 <a href="https://www.lanzous.com/iawrxif" target="_blank" rel="noopener">下载地址</a></li>
+</ol>
+</li>
+</ul>
+<h2 id="精简步骤"><a href="#精简步骤" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:精简步骤" class="headings">精简步骤</a></h2>
+<ol>
+<li>
+<p>在手机上打开USB调试</p>
+<p>打开「设置-我的设备-全部参数」，连续点击 5 次 「MIUI 版本”」，打开「开发者选项」，然后返回并打开 「设置→更多设置→开发者选项」，打开「USB 调试」，打开「USB调试(安全设置)」。</p>
+</li>
+<li>
+<p>解压 adb.zip</p>
+<p>在ADB/ADB or Fastboot文件夹，打开 cmd.exe，输入 <code>adb devices</code> 查看手机是否连接电脑.查看手机是否要授权，点确认。电脑cmd窗口出现一段 「字母数字组合 device」。说明设备连接成功。</p>
+</li>
+<li>
+<p>说明</p>
+<pre><code>adb shell pm uninstall --user 0 应用包名 
+删除 显示 Success，表示成功
+</code></pre><blockquote>
+<p>删除的app，据说只能通过恢复出厂设置来恢复，请谨慎删除。</p>
+</blockquote>
+<pre><code>adb shell pm disable-user 应用包名  
+停用  显示 disabled-user，表示成功
+</code></pre><blockquote>
+<p>停用的app可以手机应用管理里启用。MIUI 中一些 app 无法停用，或者显示停用了，但还是运行中。</p>
+</blockquote>
+<pre><code>adb shell pm enable 应用包名        启用
+</code></pre></li>
+</ol>
+<ul>
+<li>MIUI10，设置，应用管理，应用，右上角「i」可以看到应用包名。</li>
+<li>批量启用，可以修改bat文件，编辑→替换，把停用的命令替换成启用，达到一键启用的效果</li>
+<li>批量停用。 在电脑新建一个文本文档。把自己要精简的命令放进去，然后改.txt为.bat，丢adb文件夹。双击bat文件，自动出现命令窗口，命令走完自动关闭。</li>
+</ul>
+<h2 id="精简项目"><a href="#精简项目" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:精简项目" class="headings">精简项目</a></h2>
+<blockquote>
+<p>下面是我的小米手机用的是adb 精简列表。删除是我真的用不上的，停用是可能以后会用到。</p>
+</blockquote>
+<ul>
+<li>省电确实是玄学。有时候精简完其实省电了。有时候好像又没什么区别。不知道是不是和系统版本有关，还是心理作用。</li>
+<li>按我这个精简，可以开机，不会卡mi，相应和关联的功能可能不可用。精简完，可以系统更新里面增量包更新。更新完，删除的还是删除的，停用了的还是停用了。</li>
+<li>实在用不到的选择删除，可能用得到的建议停用。但部分app无法停用，或者重启会启用。</li>
+</ul>
+<p>下面精简列表收集于网络结果。我只是收集整合，提取我认为可以用的。然后给大家参考而已。详细的还请自己测试。出任何问题，本人一概不负责。建议能停用的尽量停用。不能停用的才考虑删除。删除的同时需要考虑有没有影响到别的app。</p>
+<p>已知bug，精简小米云相关服务前，未开启手机查找时：精简完，不能开启手机查找，MI Pay 无法绑定银行卡；已测试，开启开启手机查找后，可精简小米云相关服务，对MI Pay 开卡无影响。</p>
+<h3 id="删除"><a href="#删除" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:删除" class="headings">删除</a></h3>
+<blockquote>
+<p>一部分应用不能被停用。一部分应用停用后，重启就启用了，只能删除。有标注的是测试过的</p>
+</blockquote>
+<pre><code>adb shell pm uninstall --user 0 com.miui.virtualsim 全球上网（不能被停用）
+adb shell pm uninstall --user 0 com.android.email 电子邮件
+adb shell pm uninstall --user 0 com.miui.notes 便签
+adb shell pm uninstall --user 0 com.miui.hybrid 快应用
+adb shell pm uninstall --user 0 com.miui.hybrid.accessory 快应用服务
+adb shell pm uninstall --user 0 com.miui.voiceassist 小爱同学
+adb shell pm uninstall --user 0 com.miui.player 音乐
+adb shell pm uninstall --user 0 com.miui.video 视频
+adb shell pm uninstall --user 0 com.xiaomi.gamecenter 游戏
+adb shell pm uninstall --user 0 com.xiaomi.gamecenter.sdk.service 游戏服务
+</code></pre><h3 id="停用"><a href="#停用" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:停用" class="headings">停用</a></h3>
+<h4 id="已经测试过"><a href="#已经测试过" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:已经测试过" class="headings">已经测试过</a></h4>
+<pre><code>adb shell pm disable-user com.android.quicksearchbox            搜索（建议在系统应用设置里面-搜索-关闭手势打开，再精简。可以停用。建议停用）
+adb shell pm disable-user com.miui.userguide                    用户手册
+adb shell pm disable-user com.miui.cloudservice                 小米服务（精简前，未开启手机查找的，精简后，不能开启手机查找，则MI pay无法绑定银行卡）
+adb shell pm disable-user com.android.midrive                   小米云盘
+adb shell pm disable-user com.miui.yellowpage                   生活黄页（建议停用。需要通话短信拦截的不建议精简。）
+adb shell pm disable-user com.miui.screenrecorder               屏幕录制
+adb shell pm disable-user com.android.browser                   浏览器
+adb shell pm disable-user com.miui.contentextension             传送门
+adb shell pm disable-user com.android.providers.userdictionary  用户字典
+adb shell pm disable-user com.xiaomi.payment                    米币支付
+adb shell pm disable-user com.xiaomi.drivemode                  驾车模式
+adb shell pm disable-user com.android.stk                    USIM卡应用 (建议停用。停用了显示正在运行，重启就好)
+adb shell pm disable-user com.miui.backup                       备份
+adb shell pm disable-user com.miui.cloudbackup                  桌面备份
+adb shell pm disable-user com.miui.bugreport                    用户反馈
+adb shell pm disable-user com.miui.touchassistant               悬浮球
+adb shell pm disable-user com.android.printspooler          打印处理服务
+adb shell pm disable-user com.android.bips                  默认打印服务
+adb shell pm disable-user com.xiaomi.simactivate.service    小米SIM卡激活服务
+adb shell pm disable-user com.sohu.inputmethod.sogou.xiaomi  搜狗输入法
+adb shell pm disable-user com.miui.personalassistant          智能助理（负1屏的智能助理，据说删了会进不了桌面的。停用未发现）
+adb shell pm disable-user com.android.calllogbackup    小米云备份通话记录
+adb shell pm disable-user com.miui.systemAdSolution          msa广告推送（据说小米广告服务三件套之一）
+adb shell pm disable-user com.xiaomi.ab               mab小米广告推送服务（据说小米广告服务三件套之一）
+adb shell pm disable-user com.miui.analytics           Analytics数据分析（据说小米广告服务三件套之一）
+adb shell pm disable-user com.xiaomi.scanner                    扫一扫（删除的话，设置，小米账号里面的扫一扫也挂了。建议停用）
+adb shell pm disable-user com.dsi.ant.server           ANT HAL Service 
+adb shell pm disable-user com.svox.pico            Pico TTS 语音识别系统
+adb shell pm disable-user com.android.thememanager             个性主题（不建议删除，否则壁纸和铃声都不能换。建议设置好壁纸和铃声，闹钟铃声再停用）
+adb shell pm disable-user com.miui.compass                       指南针
+adb shell pm disable-user com.miui.micloudsync             MiCloudSync
+adb shell pm disable-user com.miui.securityinputmethod      小米安全键盘
+adb shell pm disable-user com.qualcomm.wfd.service              Wfd服务
+adb shell pm disable-user com.android.emergency                 急救信息
+adb shell pm disable-user com.xiaomi.providers.appindex         设置搜索
+adb shell pm disable-user com.milink.service                    联播服务
+adb shell pm disable-user com.miui.cleanmaster                  垃圾清理
+adb shell pm disable-user com.android.dreams.basic          基本互动屏保
+adb shell pm disable-user com.android.dreams.phototable  照片屏幕保护程序
+adb shell pm disable-user com.android.egg             安卓彩蛋【百度结果】
+adb shell pm disable-user com.mi.dlabs.vr                        小米VR
+adb shell pm disable-user com.android.wallpaper.livepicker      动态壁纸
+adb shell pm disable-user com.android.vpndialogs                VPN相关
+adb shell pm disable-user com.android.bookmarkprovider           收藏夹
+adb shell pm disable-user com.xiaomi.joyose                     卓越智擎（负一屏计步用的【百度结果】，精简后设置-更多设置-系统安全-伪基站防护也挂了)
+adb shell pm disable-user com.miui.vpnsdkmanager              游戏加速器
+adb shell pm disable-user com.android.smspush                   短信推送（删除对短信接收无影响）
+adb shell pm disable-user com.android.calendar                     日历
+adb shell pm disable-user com.android.providers.calendar        日历储存
+adb shell pm disable-user com.android.providers.downloads.ui    下载管理
+adb shell pm disable-user com.miui.weather2                        天气
+adb shell pm disable-user com.miui.providers.weather            天气储存
+adb shell pm disable-user com.miui.daemon                   MiuiDaemon
+adb shell pm disable-user com.xiaomi.mircs                  免费网络短信
+adb shell pm disable-user com.miui.catcherpatch  内容抓取（传送门相关功能）
+adb shell pm disable-user com.qti.confuridialer          会议电话拨号界面
+adb shell pm disable-user com.android.htmlviewer            HTML 查看器
+adb shell pm disable-user com.miui.miwallpaper                  小米壁纸
+adb shell pm disable-user com.android.pacprocessor       代理自动配置相关
+adb shell pm disable-user com.android.printservice.recommendation    Print Recommendation Service（语音打印服务,用不到的可删除）
+adb shell pm disable-user com.google.android.marvin.talkback    屏幕阅读
+adb shell pm disable-user com.miui.translationservice           翻译服务
+adb shell pm disable-user com.miui.translation.kingsoft     金山词霸翻译
+adb shell pm disable-user com.miui.translation.xmcloud           金蝶？
+adb shell pm disable-user com.miui.translation.youdao           有道翻译
+adb shell pm disable-user com.xiaomi.upnp                  UpnpService （有小米盒子等电器的不要删除）
+adb shell pm disable-user com.miui.vsimcore             虚拟SIM卡核心组件
+adb shell pm disable-user com.android.wallpaperbackup           壁纸备份
+adb shell pm disable-user com.miui.cloudservice.sysbase    云备份同步相关
+adb shell pm disable-user com.mi.webkit.core              MiWebView （小米全球上网组件）
+adb shell pm disable-user com.android.proxyhandler       代理自动配置相关
+adb shell pm disable-user com.android.sharedstoragebackup   共享存储备份
+adb shell pm disable-user com.android.wallpapercropper        壁纸合作商
+adb shell pm disable-user com.miui.audioeffect                                     AudioEffect
+adb shell pm disable-user com.xiaomi.mircs      小米广告服务相关??无法停用
+adb shell pm disable-user com.miui.daemon                MiuiDaemon （据说是负一屏，删除后负一屏不可用，暂未发现其他Bug）无法停用
+</code></pre><h4 id="没有精简过"><a href="#没有精简过" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:没有精简过" class="headings">没有精简过</a></h4>
+<blockquote>
+<p>无法确定精简后是否卡米，未精简的部分app列表。慎重精简！</p>
+</blockquote>
+<pre><code>com.sohu.inputmethod.sogou.xiaomi     搜狗输入法小米版
+com.android.managedprovisioning       工作资料设置
+com.miui.calculator                   计算器
+com.android.soundrecorder             录音机
+com.android.calendar                  日历
+com.android.providers.calendar        日历储存
+com.android.inputdevices              输入设备
+com.miui.weather2                     天气
+com.android.externalstorage           外部储存设备
+com.android.documentsui               文件
+com.android.fileexplorer              文件管理 
+com.xiaomi.pass                       小米卡包
+com.mipay.wallet                      小米钱包
+com.miui.nextpay                      小米支付
+com.miui.tsmclient                    小米智能卡
+com.miui.contentcatcher               应用程序扩展服务                 （据说和传送门功能有关。无法停用，停用了显示正在运行，重启也在运行）
+com.qapp.secprotect                   安全防护
+com.miui.antispam                     骚扰拦截                      （不建议删，删后安全中心的骚扰拦截功能无法使用【百度结果，未测试】）
+com.miui.cit                          硬件检测                             （删除后工程模式不可用【百度结果，未测试】）
+</code></pre><h3 id="已知不可精简的app"><a href="#已知不可精简的app" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:已知不可精简的app" class="headings">已知不可精简的app</a></h3>
+<blockquote>
+<p>网络结果，未测试</p>
+</blockquote>
+<ul>
+<li>com.miui.securitycenter</li>
+</ul>
+<p>安全中心（精简后卡米）</p>
+<ul>
+<li>com.xiaomi.finddevice</li>
+</ul>
+<p>查找手机（精简后卡米）</p>
+<ul>
+<li>com.android.updater</li>
+</ul>
+<p>系统更新（精简后卡米）</p>
+<ul>
+<li>com.xiaomi.market</li>
+</ul>
+<p>应用商店（精简后卡米）</p>
+<ul>
+<li>com.xiaomi.vipaccount</li>
+</ul>
+<p>我的小米（登录了小米账号的，精简后卡开机输入小米账号的密码）</p>
+<ul>
+<li>com.miui.guardprovider</li>
+</ul>
+<p>MIUI安全组件（安全中心病毒扫描功能(重启会启用)， 精简后程序不能安装，提示错误-22。启用后，就能安装了 ）</p>
+<ul>
+<li>com.android.certinstaller</li>
+</ul>
+<p>证书安装程序（卸载了以后android手机会无法安装应用程序,无法自动 WIFI 等）</p>
+<ul>
+<li>com.android.providers.downloads</li>
+</ul>
+<p>下载管理程序（不能删除，不然会出现无法安装应用程序【关闭 miu i优化后，关闭前未知】）</p>
+<h3 id="一些技巧"><a href="#一些技巧" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:一些技巧" class="headings">一些技巧</a></h3>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">adb</span> <span class="nx">devices</span>     <span class="c1">//检查一下设备是否连接正常
+</span><span class="c1"></span><span class="nx">pause</span> <span class="c1">//正常就按任意键继续
+</span><span class="c1"></span><span class="nx">adb</span> <span class="nx">install</span> <span class="o">%</span><span class="mi">1</span> <span class="c1">//安装拖进来的apk
+</span><span class="c1"></span><span class="nx">pause</span> <span class="c1">//安装成功后按任意键退出
+</span><span class="c1"></span> 
+<span class="nx">默认</span><span class="err">：</span><span class="nx">adb</span> <span class="nx">shell</span> <span class="nx">wm</span> <span class="nx">size</span> <span class="mi">1080</span><span class="nx">x1920</span>
+<span class="nx">默认</span><span class="err">：</span><span class="nx">adb</span> <span class="nx">shell</span> <span class="nx">wm</span> <span class="nx">density</span> <span class="mi">480</span> <span class="o">&amp;&amp;</span> <span class="nx">adb</span> <span class="nx">reboot</span> <span class="mi">480</span><span class="err">？</span>
+<span class="nx">修改手机分辨率</span> <span class="err">：</span><span class="nx">adb</span> <span class="nx">shell</span> <span class="nx">wm</span> <span class="nx">size</span> <span class="mi">900</span><span class="nx">x1600</span>
+<span class="nx">修改手机DPI</span><span class="err">：</span><span class="nx">adb</span> <span class="nx">shell</span> <span class="nx">wm</span> <span class="nx">density</span> <span class="mi">380</span> <span class="o">&amp;&amp;</span> <span class="nx">adb</span> <span class="nx">reboot</span>
+<span class="nx">修改手机分辨率</span> <span class="err">：</span><span class="nx">adb</span> <span class="nx">shell</span> <span class="nx">wm</span> <span class="nx">size</span> <span class="mi">720</span><span class="nx">x1280</span>
+<span class="nx">修改手机DPI</span><span class="err">：</span><span class="nx">adb</span> <span class="nx">shell</span> <span class="nx">wm</span> <span class="nx">density</span> <span class="mi">300</span> <span class="o">&amp;&amp;</span> <span class="nx">adb</span> <span class="nx">reboot</span>
+</code></pre></td></tr></table></div>
+</div>
+</div>
+            </div>
+
+            
+
+
+        </article>
+
+        
+
+        
+
+
+        
+
+
+        
+
+
+        
+
+
+        
+
+
+        
+    <footer class="minimal-footer">
+        
+            <div class="post-tag"><a href="/tags/android/" rel="tag" class="post-tag-link">#android</a> <a href="/tags/app/" rel="tag" class="post-tag-link">#app</a></div>
+        
+        
+        
+            
+        
+    </footer>
+
+
+
+        
+
+
+        
+
+
+        
+
+
+    </div>
+</main>
+
+
+            
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a>
+    </div>
+
+
+            
+
+        </div>
+        
+
+        
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+
+<script>
+    mediumZoom(document.querySelectorAll('div.post-body img'), {
+        background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
+    })
+</script>
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
