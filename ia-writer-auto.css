@@ -26,9 +26,9 @@
   --fnt-h2:       			'iA Writer Quattro S', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   --fnt-h3:       			'iA Writer Quattro S', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   --fnt-size-page-title: 	22px;
-  --fnt-size-h1:       		14px;
-  --fnt-size-h2:       		14px;
-  --fnt-size-h3:       		14px;
+  --fnt-size-h1:       		18px;
+  --fnt-size-h2:       		17px;
+  --fnt-size-h3:       		16px;
   --fnt-style-h1:			normal;
   --fnt-style-h2:			normal;
   --fnt-style-h3:			normal;
@@ -318,7 +318,7 @@
   }
 }
 :root {
-  --fg-tag:				var(--cl-gray-500);
+  --fg-tag:				var(--cl-red-500);
 }
 :root {
   --fg-calc:		var(--cl-green-500);
@@ -628,14 +628,7 @@
 .roam-body .roam-app .roam-sidebar-container .rm-graph-dropdown .setting:hover a {
   color: var(--fg-menu-hover);
 }
-#rm-log-container > div > div > div:nth-child(1) > div:nth-child(3) > div > div > div > div.flex-h-box > div:nth-child(3) {
-  color: var(--fg-tag)!important;
-}
 
-#app > div > div.roam-app > div.flex-h-box > div.roam-main > div.roam-body-main > div:nth-child(1) > div > div:nth-child(2) > div > div > div > div > strong, 
-#app > div > div.roam-app > div.flex-h-box > div.roam-main > div.roam-body-main > div:nth-child(1) > div > div:nth-child(2) > div > div > div.rm-reference-container > div.flex-h-box > div:nth-child(3) {
-  color: var(--fg-tag)!important;
-}
 .rm-reference-item {
   margin-top: 0px;
 }
