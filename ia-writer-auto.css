@@ -295,16 +295,16 @@
   }
 }
 :root {
-  --fg-link:			var(--cl-pink-500);
-  --fg-link-hover:		var(--cl-pink-500);
+  --fg-link:			var(--cl-gray-500);
+  --fg-link-hover:		var(--cl-gray-500);
   --fg-reference:		var(--cl-pink-500);
   --fg-reference-hover:	var(--cl-pink-500);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --fg-link:				var(--cl-pink-500);
-    --fg-link-hover:		var(--cl-pink-500);
+    --fg-link:				var(--cl-gray-500);
+    --fg-link-hover:		var(--cl-gray-500);
     --fg-reference:			var(--cl-pink-500);
     --fg-reference-hover:	var(--cl-pink-500);
   }
