@@ -655,12 +655,6 @@
   border: none!important;
   border-bottom: 0.5px solid var(--br-hr)!important;
 }
-.roam-article a,
-.roam-article a:hover,
-  .rm-page-ref--link,
-    .rm-page-ref--link:hover {
-  text-decoration: underline;
-} 
 .rm-inline-img__resize {
   box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 
               0 10px 10px -5px rgba(0,0,0,.04);
