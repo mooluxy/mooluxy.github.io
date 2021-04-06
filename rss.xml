@@ -7,7 +7,7 @@
 
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Mooluxy&#39;s Blog</title>
+        <title>Mooluxy</title>
         <link>https://mooluxy.github.io/</link>
         <description>Mooluxy&#39;s Blog</description>
         <generator>Hugo 0.82.0 https://gohugo.io/</generator>
@@ -21,7 +21,7 @@
             <webMaster>wyqwsgs@gmail.com (Mooluxy)</webMaster>
         
         
-        <lastBuildDate>Thu, 01 Apr 2021 13:43:30 &#43;0000</lastBuildDate>
+        <lastBuildDate>Tue, 06 Apr 2021 02:57:33 &#43;0000</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://mooluxy.github.io/rss.xml" />
         
